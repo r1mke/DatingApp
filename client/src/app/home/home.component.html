@@ -1,0 +1,29 @@
+<div class="container mt-5">
+    <div class="text-center d-flex flex-column align-items-center">
+        @if(!registerMode){
+            <h1>Find your match</h1>
+            <p class="lead">Come on in to view your matches... all you need to do is sign up!</p>
+            <div class="d-flex justify-content-evenly w-50">
+                <button class="btn btn-primary mr-2" (click)="registerToggle()">Register</button>
+                <button class="btn btn-info">Learn more</button>
+            </div>
+        } @else {
+            <div class="d-flex flex-column container mt-5 text-center">
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <p>Register form goes here</p>
+                        <app-register 
+                        [usersFromHomeComponent]="users"
+                        (cancelRegisterMode) = "cancelRegisterMode($event)"
+                        >
+                        </app-register>
+                    </div> 
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+    
+        
+    

@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
+    <div class="container">
+      <a class="navbar-brand" href="#">DatingApp</a>
+
+      @if(accountService.currentUser()){
+        <ul style="width: 40%;" class="navbar-nav me-auto mb-2 mb-sm-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Lists</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Messages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" (click)="logout()">Logout</a>
+          </li>
+        </ul>
+      }
+
+      @if(accountService.currentUser()){
+        <div class="dropdown" dropdown [insideClick]="true">
+            <a dropdownToggle class="dropdown-toggle text-light">Welcome {{model.username}}</a>
+          <div *dropdownMenu class="dropdown-menu">
+            <a class="dropdown-item">Edit profile</a>
+            <a class="dropdown-item">Collection</a>
+            <a class="dropdown-item">Logout</a>
+          </div>
+        </div>
+      }
+
+      @if(!accountService.currentUser()){
+        <form #loginForm="ngForm" style="width: 40%;display: flex;justify-content: space-between;" (ngSubmit)="login()">
+          <input name="username" [(ngModel)]="model.username" style="width: 40%; padding: 1px;" autocomplete="off" class="form-control" type="text" placeholder="Username">
+          <input name="password"  [(ngModel)]="model.password" style="width: 40%;" class="form-control"  autocomplete="off" type="password" placeholder="Password">
+          <button class="btn btn-outline-success" type="submit">Login</button>
+        </form>
+      }
+      
+    </div>
+  </nav>
