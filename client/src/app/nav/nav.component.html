@@ -1,20 +1,17 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
     <div class="container">
-      <a class="navbar-brand" href="#">DatingApp</a>
+      <a routerLink="/" class="navbar-brand" href="#">DatingApp</a>
 
-      @if(accountService.currentUser()){
+      @if(true){
         <ul style="width: 40%;" class="navbar-nav me-auto mb-2 mb-sm-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a routerLink="/members" class="nav-link active" aria-current="page" href="#">Matches</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Lists</a>
+            <a routerLink="/lists" class="nav-link active" aria-current="page" href="#">Lists</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Messages</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" (click)="logout()">Logout</a>
+            <a routerLink="/messages" class="nav-link active" aria-current="page" href="#">Messages</a>
           </li>
         </ul>
       }
@@ -25,7 +22,7 @@
           <div *dropdownMenu class="dropdown-menu">
             <a class="dropdown-item">Edit profile</a>
             <a class="dropdown-item">Collection</a>
-            <a class="dropdown-item">Logout</a>
+            <a (click)="logout()" class="dropdown-item">Logout</a>
           </div>
         </div>
       }
